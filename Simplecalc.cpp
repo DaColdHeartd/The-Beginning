@@ -1,3 +1,4 @@
+//This is a simple calculator written in c++.
 #include <iostream>
 
 using namespace std;
