@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    //declaring my variables
+    //declaring my vars
   double wearth, wdes, tg;
   int planetNumber;
   string planetName;
