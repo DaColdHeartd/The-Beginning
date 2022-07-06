@@ -5,21 +5,27 @@
 
 using namespace std;
  //Declaring and defining some variables
+ 
  string input, input_name, answer;
  string greetings = "hello:hi";
  string greeting = "Hello There, ";
  string input_name2 = input_name;
+
 //a function that doesn't ask for a name
 //so I can call and return for a loop
 //(so the program stays awake).
 //Definitely not the best way but I'll change it later.
+
 int prompt(string input_name2)
 {
     cout << "You: ";
     cin >> input;
+    
     //a for loop to turn Input into lowercase
     for(char &input: input)
         input = input | ' ';        // similar to: c = tolower(c);
+    
+    
     //new variables to hold the substring(before the assigned position.)
     int pos2 = greetings.find(":");
     string sub2 = greetings.substr(0 , pos2);
@@ -52,10 +58,12 @@ int main()
 
     //main function with a greeting message for the user.
     cout << "## Bot_Test_1 ##" << endl;
+   
     //asking for user's name.
     cout << "What is your name, User: ";
     cin >> input_name;
     cout << "Welcome, " << input_name << endl;
+    
     //prompting user to enter commands/input.
     cout << "You: ";
     cin >> input;
@@ -72,6 +80,7 @@ int main()
     //variables to hold the substring(after assigned pos.)
     int pos = greetings.find(":");
     string sub = greetings.substr(pos + 1) ;
+    
     //if statement to answer specific strings.
     if (input == sub || input == sub2)
     {
