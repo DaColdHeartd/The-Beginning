@@ -1,86 +1,71 @@
 #include <iostream>
 #include <string>
 
-using namespace std; //I know using namespace std is bad practice, but i'm just testing stuff out.
+using namespace std;
 
-//a function that doesn't ask for a name
-//so I can call and return for a loop
-//(so the program stays awake).
-//Definitely not the best way but I'll change it later.
-
-int prompt(const string& input_name )
+bool prompt(const string& user_name )
 {
     //declaring the variables locally.
-    string input, answer;
+    string user_input, answer;
     string greetings[] = {"hello", "hi", "greetings", "how are you", "wussup"};
 
-    cout << "You: ";
-    getline(cin, input); // using *getline so it takes in strings with spaces.
 
+    cout << "You: ";
+    getline(cin, user_input); // using *getline so it takes in strings with spaces.
 
     //a for loop to turn Input into lowercase
-    for(char &input: input)
-        input = input | ' ';        // similar to: c = tolower(c);
-
+    for(char &user_input: user_input)
+        user_input = tolower(user_input); //finally used std::tolower :)
 
     //if statement to answer only to specific strings
-    if (input == greetings[0] || input == greetings[1])
+    if (user_input == greetings[0] || user_input == greetings[1])
 
     {
-        answer =  "Hello there, " + input_name;
-        cout << "Bot: " << answer << endl;
+        answer =  "Hello there, " + user_name;
     }
-    else if (input == greetings[2])
+    else if (user_input == greetings[2])
     {
         answer = "Are you trying to be fancy? It's not working.";
-        cout << "Bot: " << answer << endl;
     }
-    else if (input == greetings[3])
+    else if (user_input == greetings[3])
     {
         answer = "I'm fine, how can I help you?";
-        cout << "Bot: " << answer << endl;
-
     }
-    else if (input == greetings[4])
+    else if (user_input == greetings[4])
     {
         answer = "Wussup homie.";
-        cout << answer << endl;
     }
     else
     {
         cout << "still in development!\n";
     }
 
+    cout << "Bot: " << answer << endl;
 
-    //non zero return to return errors.
-   return 1;
+    return true;
 }
-
-
 
 int main()
 {
     //again declaring variables.(locally)
-    string input_name;
+    string user_name;
 
     //main function with a greeting message for the user.
     cout << "## Bot_Test_1 ##" << endl;
 
     //asking for the user's name.
     cout << "What is your name, User: ";
-    getline(cin, input_name);
+    getline(cin, user_name);
 
-    cout << "Welcome, " << input_name << "." << endl;
+    cout << "Welcome, " << user_name << "." << endl;
 
     //calling prompt to save space
-    prompt(input_name);
+    prompt(user_name);
 
     //while loop so program doesn't automatically end.
-    while(prompt(input_name) == true)
-    {
-        prompt(input_name);
-    }
-    //also a non zero return value.
-    return 1;
+    while(prompt(user_name));
 
+    //also a non zero return value.
+    return 0;
 }
+
