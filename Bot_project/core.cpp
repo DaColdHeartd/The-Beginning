@@ -67,10 +67,6 @@ bool prompt(const string& user_name )
         tt = system_clock::to_time_t (tomorrow);
         answer = ctime(&tt);
     }
-    else if (user_input == "math")
-    {
-      mathematics();
-    }
     else if (user_input == "exit")
     {
         return false;
